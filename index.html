@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Handmade Crafts by RJ</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:#fff8f2;
+color:#2b2b2b;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:white;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-family:'Playfair Display',serif;
+font-size:28px;
+font-weight:700;
+color:#d4af37;
+}
+
+.nav a{
+margin-left:20px;
+text-decoration:none;
+color:black;
+font-weight:500;
+}
+
+.cart{
+background:#d4af37;
+padding:8px 15px;
+border-radius:20px;
+color:white;
+}
+
+/* HERO */
+.hero{
+height:80vh;
+background:url("https://images.unsplash.com/photo-1617038220319-276d3cfab638") center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+text-align:center;
+}
+
+.hero h1{
+font-size:55px;
+font-family:'Playfair Display',serif;
+}
+
+.hero p{
+font-size:18px;
+}
+
+.btn{
+background:#d4af37;
+padding:12px 25px;
+border-radius:30px;
+color:white;
+text-decoration:none;
+}
+
+/* COLLECTIONS */
+.section{
+padding:60px 40px;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:15px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.card img{
+width:100%;
+height:250px;
+object-fit:cover;
+}
+
+.card h3{
+margin:10px 0;
+}
+
+.price{
+color:#d4af37;
+font-weight:bold;
+}
+
+.add{
+background:#d4af37;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:25px;
+cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+background:#111;
+color:white;
+padding:40px;
+text-align:center;
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25d366;
+color:white;
+padding:15px 18px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">Handmade Crafts by RJ</div>
+
+<div class="nav">
+<a href="https://www.instagram.com/handmadecrafts_by_rj?igsh=MWd6NmFyN3dsMHZhdw==">Instagram</a>
+<a href="https://wa.me/919849193411">Contact</a>
+<span class="cart">Cart 🛒 <span id="count">0</span></span>
+</div>
+</header>
+
+<section class="hero">
+<div>
+<h1>Elegance Crafted with Love</h1>
+<p>Luxury handmade jewellery designed for timeless beauty</p>
+<a class="btn" href="#shop">Explore Collection</a>
+</div>
+</section>
+
+<section class="section" id="shop">
+<h2>Featured Handmade Jewellery</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1">
+<h3>Traditional Gold Bangles</h3>
+<p class="price">₹1,999</p>
+<button class="add" onclick="addCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f">
+<h3>Handcrafted Bridal Necklace</h3>
+<p class="price">₹4,999</p>
+<button class="add" onclick="addCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401">
+<h3>Designer Earrings</h3>
+<p class="price">₹899</p>
+<button class="add" onclick="addCart()">Add to Cart</button>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1630019852942-f89202989a59">
+<h3>Temple Jewellery Haaram</h3>
+<p class="price">₹5,499</p>
+<button class="add" onclick="addCart()">Add to Cart</button>
+</div>
+
+</div>
+</section>
+
+<footer>
+<h2>Handmade Crafts by RJ</h2>
+<p>Crafted with Love | Premium Handmade Jewellery</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919849193411">💬</a>
+
+<script>
+let count=0;
+function addCart(){
+count++;
+document.getElementById("count").innerText=count;
+alert("Added to cart");
+}
+</script>
+
+</body>
+</html>
