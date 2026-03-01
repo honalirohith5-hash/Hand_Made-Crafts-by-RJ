@@ -1,16 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Handmade Crafts by RJ</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 body{
 margin:0;
-font-family:'Poppins',sans-serif;
+font-family:Poppins;
 background:#fff8f2;
 color:#2b2b2b;
 }
@@ -18,8 +17,8 @@ color:#2b2b2b;
 /* HEADER */
 header{
 display:flex;
-justify-content:space-between;
 align-items:center;
+justify-content:space-between;
 padding:15px 40px;
 background:white;
 box-shadow:0 3px 10px rgba(0,0,0,0.05);
@@ -28,53 +27,55 @@ top:0;
 z-index:100;
 }
 
-.logo{
-font-family:'Playfair Display',serif;
-font-size:28px;
-font-weight:700;
-color:#d4af37;
-}
-
-.nav a{
-margin-left:20px;
-text-decoration:none;
-color:black;
-font-weight:500;
-}
-
-.cart{
-background:#d4af37;
-padding:8px 15px;
-border-radius:20px;
-color:white;
-}
-
-/* HERO */
-.hero{
-height:80vh;
-background:url("https://images.unsplash.com/photo-1617038220319-276d3cfab638") center/cover;
+.brand{
 display:flex;
 align-items:center;
-justify-content:center;
+}
+
+.brand img{
+width:70px;
+border-radius:50%;
+margin-right:15px;
+}
+
+.brand h1{
+font-family:Playfair Display;
+margin:0;
+font-size:28px;
+}
+
+.icons a{
+margin-left:15px;
+font-size:24px;
+text-decoration:none;
+}
+
+/* HERO VIDEO */
+.hero{
+position:relative;
+height:90vh;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hero-text{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
 color:white;
 text-align:center;
 }
 
-.hero h1{
-font-size:55px;
-font-family:'Playfair Display',serif;
-}
-
-.hero p{
-font-size:18px;
-}
-
-.btn{
-background:#d4af37;
-padding:12px 25px;
-border-radius:30px;
-color:white;
-text-decoration:none;
+.hero-text h2{
+font-size:50px;
+font-family:Playfair Display;
 }
 
 /* COLLECTIONS */
@@ -85,39 +86,50 @@ text-align:center;
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:25px;
+margin-top:30px;
 }
 
 .card{
 background:white;
+padding:25px;
 border-radius:15px;
-overflow:hidden;
 box-shadow:0 5px 20px rgba(0,0,0,0.05);
-}
-
-.card img{
-width:100%;
-height:250px;
-object-fit:cover;
-}
-
-.card h3{
-margin:10px 0;
-}
-
-.price{
-color:#d4af37;
-font-weight:bold;
-}
-
-.add{
-background:#d4af37;
-color:white;
-border:none;
-padding:10px 20px;
-border-radius:25px;
 cursor:pointer;
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
+}
+
+.modal img{
+width:350px;
+border-radius:10px;
+}
+
+/* REVIEWS */
+.reviews{
+background:white;
+padding:60px;
+text-align:center;
+}
+
+.review-card{
+max-width:500px;
+margin:20px auto;
+background:#fff8f2;
+padding:25px;
+border-radius:15px;
 }
 
 /* FOOTER */
@@ -127,91 +139,120 @@ color:white;
 padding:40px;
 text-align:center;
 }
-
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25d366;
-color:white;
-padding:15px 18px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
-}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="logo">Handmade Crafts by RJ</div>
 
-<div class="nav">
-<a href="https://www.instagram.com/handmadecrafts_by_rj?igsh=MWd6NmFyN3dsMHZhdw==">Instagram</a>
-<a href="https://wa.me/919849193411">Contact</a>
-<span class="cart">Cart 🛒 <span id="count">0</span></span>
+<div class="brand">
+<img src="logo.jpg">
+<h1>Handmade Crafts by RJ</h1>
 </div>
+
+<div class="icons">
+<a href="https://www.instagram.com/handmadecrafts_by_rj?igsh=MWd6NmFyN3dsMHZhdw==">📸</a>
+<a href="https://wa.me/919849193411">💬</a>
+</div>
+
 </header>
 
+<!-- HERO VIDEO -->
 <section class="hero">
-<div>
-<h1>Elegance Crafted with Love</h1>
-<p>Luxury handmade jewellery designed for timeless beauty</p>
-<a class="btn" href="#shop">Explore Collection</a>
+<video autoplay muted loop>
+<source src="bgvideo.mp4" type="video/mp4">
+</video>
+
+<div class="hero-text">
+<h2>Elegance Crafted with Love</h2>
+<p>Where beauty shines in every detail</p>
 </div>
 </section>
 
-<section class="section" id="shop">
-<h2>Featured Handmade Jewellery</h2>
+<!-- COLLECTIONS -->
+<section class="section">
+<h2>Our Collections</h2>
+<p>Explore a range of jewellery across categories.</p>
 
 <div class="grid">
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1">
-<h3>Traditional Gold Bangles</h3>
-<p class="price">₹1,999</p>
-<button class="add" onclick="addCart()">Add to Cart</button>
+<div class="card" onclick="openModal('https://images.unsplash.com/photo-1602751584552-8ba73aad10e1')">
+<h3>Chains</h3>
+<p>Classic and timeless chains for every occasion.</p>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f">
-<h3>Handcrafted Bridal Necklace</h3>
-<p class="price">₹4,999</p>
-<button class="add" onclick="addCart()">Add to Cart</button>
+<div class="card" onclick="openModal('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f')">
+<h3>Rings</h3>
+<p>Elegant gold rings crafted to symbolize beauty and love.</p>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401">
-<h3>Designer Earrings</h3>
-<p class="price">₹899</p>
-<button class="add" onclick="addCart()">Add to Cart</button>
+<div class="card" onclick="openModal('https://images.unsplash.com/photo-1630019852942-f89202989a59')">
+<h3>Bangles</h3>
+<p>Elegant bangles for a timeless look.</p>
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1630019852942-f89202989a59">
-<h3>Temple Jewellery Haaram</h3>
-<p class="price">₹5,499</p>
-<button class="add" onclick="addCart()">Add to Cart</button>
+<div class="card" onclick="openModal('https://images.unsplash.com/photo-1611085583191-a3b181a88401')">
+<h3>Necklaces</h3>
+<p>Beautiful necklaces that add charm to any outfit.</p>
+</div>
+
+<div class="card" onclick="openModal('https://images.unsplash.com/photo-1627293509201-7d1f2fd9dcb3')">
+<h3>Haarams</h3>
+<p>Exquisite Haaram sets that captivate every gaze.</p>
+</div>
+
+<div class="card" onclick="openModal('https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d')">
+<h3>Drops</h3>
+<p>Traditional drops for a festive touch.</p>
 </div>
 
 </div>
 </section>
 
+<!-- CUSTOMER REVIEWS -->
+<section class="reviews">
+<h2>Customer Reviews</h2>
+
+<div class="review-card">
+⭐⭐⭐⭐⭐  
+<p>Beautiful handmade designs… quality superb!</p>
+<b>— Priya</b>
+</div>
+
+<div class="review-card">
+⭐⭐⭐⭐⭐  
+<p>Bridal jewellery amazing… everyone loved it!</p>
+<b>— Kavya</b>
+</div>
+
+</section>
+
+<!-- FOOTER -->
 <footer>
-<h2>Handmade Crafts by RJ</h2>
-<p>Crafted with Love | Premium Handmade Jewellery</p>
+<h2>Contact Us</h2>
+
+<p>
+<a style="color:white;" href="https://wa.me/919849193411">WhatsApp</a> |
+<a style="color:white;" href="https://www.instagram.com/handmadecrafts_by_rj?igsh=MWd6NmFyN3dsMHZhdw==">Instagram</a>
+</p>
+
+<p>Handmade Crafts by RJ © 2025</p>
 </footer>
 
-<a class="whatsapp" href="https://wa.me/919849193411">💬</a>
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="closeModal()">
+<img id="modalImg">
+</div>
 
 <script>
-let count=0;
-function addCart(){
-count++;
-document.getElementById("count").innerText=count;
-alert("Added to cart");
+function openModal(src){
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalImg").src=src;
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
 }
 </script>
 
